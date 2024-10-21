@@ -89,6 +89,11 @@ let intervaloID = null;
         zerar();
         musicaFim.play();
         alert ('Tempo finalizado!');
+        const focoAtivo = html.getAttribute('data-contexto') == 'foco'
+        if (focoAtivo) {
+            const evento = new CustomEvent('FocoFinalizado')
+            document.dispatchEvent(evento)
+        }
         return
     }
     tempoDecorridoEmSegundos -= 1;
